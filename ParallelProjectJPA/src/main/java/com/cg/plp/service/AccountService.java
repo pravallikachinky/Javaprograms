@@ -89,7 +89,7 @@ public class AccountService implements IAccountService {
 		Account acc=dao.getDetails(phoneNum);
 		if (!validateMobile(phoneNum)) {
 			throw new AccountException("please enter mobile number with 10 digits");
-		}if(amount<acc.getBal())
+		}if(amount>acc.getBal())
 			throw new AccountException("Account balance is Low");
 		return dao.withdraw(phoneNum, amount);
 	}
